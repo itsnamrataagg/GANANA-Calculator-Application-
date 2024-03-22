@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exponential and Roots Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: beige;
+        }
+
+        #calculator {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        #numberInput {
+            margin-bottom: 20px;
+            padding: 10px;
+    border: 1px solid beige; 
+    border-radius: 5px;
+}
+        
+
+        #history {
+            text-align: left;
+            margin-top: 20px;
+            background-color: #fff; 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        button {
+    background-color: #2ecc71; 
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #27ae60; 
+}
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+}
+html{
+    border: solid 6px black;
+}
+.go-back-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .go-back-button {
+            padding: 10px;
+            background-color: transparent;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .go-back-button:hover {
+            background-color: #76a9e0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="calculator">
+    <h2>Exponential and Roots Calculator</h2>
+    <label for="numberInput">Enter Number: </label>
+    <input type="number" id="numberInput" placeholder="Enter number">
+    <br>
+    <button onclick="calculateExponential()">e^x</button>
+    <button onclick="calculateSquareRoot()">sqrt(x)</button>
+    <button onclick="calculateCubeRoot()">cbrt(x)</button>
+    <br>
+    <p id="result">Result: <span id="displayResult">0</span></p>
+    <button onclick="showHistory()">History</button>
+    <div id="history" style="display: none;">
+        <h3>Calculation History</h3>
+        <ul id="historyList"></ul>
+        <a href="/ex.html" style="color: black;">Back</a>
+    </div>
+    <div class="go-back-container">
+        <button class="go-back-button" onclick="goBack()">Go Back</button>
+    </div>
+</div>
+
+<script>
+    var calculationHistory = [];
+
+    function calculateExponential() {
+        var numberInput = document.getElementById('numberInput');
+        var displayResult = document.getElementById('displayResult');
+
+        var inputNumber = parseFloat(numberInput.value);
+
+        if (isNaN(inputNumber)) {
+            displayResult.textContent = 'Invalid input';
+            return;
+        }
+
+        
+        var result = Math.exp(inputNumber).toFixed(4);
+
+        
+        displayResult.textContent = result;
+
+        
+        calculationHistory.push({ operation: 'e^x', input: inputNumber, result: result });
+    }
+
+    function calculateSquareRoot() {
+        var numberInput = document.getElementById('numberInput');
+        var displayResult = document.getElementById('displayResult');
+
+        var inputNumber = parseFloat(numberInput.value);
+
+        if (isNaN(inputNumber) || inputNumber < 0) {
+            displayResult.textContent = 'Invalid input';
+            return;
+        }
+
+        
+        var result = Math.sqrt(inputNumber).toFixed(4);
+
+        
+        displayResult.textContent = result;
+
+        
+        calculationHistory.push({ operation: 'sqrt(x)', input: inputNumber, result: result });
+    }
+
+    function calculateCubeRoot() {
+        var numberInput = document.getElementById('numberInput');
+        var displayResult = document.getElementById('displayResult');
+
+        var inputNumber = parseFloat(numberInput.value);
+
+        if (isNaN(inputNumber)) {
+            displayResult.textContent = 'Invalid input';
+            return;
+        }
+
+        
+        var result = Math.cbrt(inputNumber).toFixed(4);
+
+        
+        displayResult.textContent = result;
+
+        
+        calculationHistory.push({ operation: 'cbrt(x)', input: inputNumber, result: result });
+    }
+
+    function showHistory() {
+        var historySection = document.getElementById('history');
+        var historyList = document.getElementById('historyList');
+
+        
+        historyList.innerHTML = '';
+
+        
+        for (var i = 0; i < calculationHistory.length; i++) {
+            var listItem = document.createElement('li');
+            listItem.textContent = `Operation: ${calculationHistory[i].operation}, Input: ${calculationHistory[i].input}, Result: ${calculationHistory[i].result}`;
+            historyList.appendChild(listItem);
+        }
+
+        
+        if (historySection.style.display === 'none') {
+            historySection.style.display = 'block';
+        } else {
+            historySection.style.display = 'none';
+        }
+    }
+    function goBack() {
+            window.history.back();
+        }
+</script>
+
+</body>
+</html>
