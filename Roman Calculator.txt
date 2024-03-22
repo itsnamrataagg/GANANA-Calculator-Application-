@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+        }
+
+        .calculator {
+            width: 400px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #display {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .space {
+            height: 20px;
+        }
+
+        #historySection {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: left;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #historyList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #historyList li {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        #historyBtn {
+            cursor: pointer;
+            background-color: #e7e8eb;
+            color: black;
+            border: 2px solid #0c0c0c;
+            border-radius: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        p {
+            color: black;
+            font-size: 14px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        #historyBtn:hover {
+            background-color: #404e9c;
+        }
+
+        .dark-mode .buttons {
+            background-color: black;
+            color: white;
+            text-align: right;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+            text-align: right;
+        }
+
+        
+        
+
+        +
+        button#newButton {
+            background-color: #ffcc00;
+            color: black;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        button#newButton:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input style="border-radius: 20px;" type="text" id="display" readonly>
+        <div class="buttons">
+            <button onclick="appendToDisplay('VII')">VII</button>
+            <button onclick="appendToDisplay('VIII')">VIII</button>
+            <button o*nclick="appendToDisplay('IX')">IX</button>
+            <button style="background-color: rgb(246, 33, 33); color: white;" onclick="clearDisplay()">Clear</button>
+            <button onclick="appendToDisplay('VI')">VI</button>
+            <button onclick="appendToDisplay('V')">V</button>
+            <button onclick="appendToDisplay('IV')">IV</button>
+            <button style="color: black;" onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('III')">III</button>
+            <button onclick="appendToDisplay('II')">II</button>
+            <button onclick="appendToDisplay('I')">I</button>
+            <button style="color: black;" onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button style="background-color: green; color: white;" onclick="appendToDisplay('+')">+</button>
+        </div>
+        <div class="space"></div>
+        <button style="background-color: #7885d1; color: black;" onclick="calculateResult()">=</button>
+        
+        <button style="background-color: #D5B60A; color: black; margin-top: 10px;" onclick="openSpecifiedLink()">Open Arithmetic Caculator</button>
+    </div>
+
+    <p><button onc*-*lick="myFunction()">THEME</button></p>
+    <div id="historySection">
+        <button id="historyBtn" onclick="toggleHistory()">History</button>
+        <ul id="historyList"></ul>
+        
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+        let historyList = document.getElementById('historyList');
+        let calculationsHistory = [];
+
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculateResult() {
+            try {+
+                let result = evaluateExpression(display.value);
+                display.value = result;
+                storeCalculation(result);
+            } catch (error) {
+                console.error("Calculation error:", error);
+                display.value = 'Error';
+            }
+        }
+
+        function evaluateExpression(expression) {
+            
+            return eval(expression);
+        }
+
+        function storeCalculation(result) {
+            calculationsHistory.push(result);
+            updateHistoryList();
+        }
+
+        function updateHistoryList() {
+            historyList.innerHTML = '';
+            calculationsHistory.forEach((calculation, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Calculation ${index + 1}: ${calculation}`;
+                historyList.appendChild(listItem);
+            });
+        }
+
+        function toggleHistory() {
+            historyList.style.display = historyList.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+
+       
+
+        function openSpecifiedLink() {
+            
+            window.open('ganana2.html', '_blank');
+        }
+    </script>
+</body>
+
+</html>
