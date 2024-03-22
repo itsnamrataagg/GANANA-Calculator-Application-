@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Calculator Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background-image.jpg') center/cover no-repeat fixed; 
+            color: #333; 
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333; 
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        form {
+            margin-top: 2em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+        .review .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap:2rem;
+}
+
+.review .box-container .box{
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding:2.5rem;
+    background: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.review .box-container .box img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border:.5rem solid #fff;
+}
+
+.review .box-container .box h3{
+    color:#fff;
+    font-size: 2.2rem;
+    padding:.5rem 0;
+}
+
+.review .box-container .box .stars i{
+    color:#fff;
+    font-size: 1.5rem;
+}
+
+.review .box-container .box .text{
+    color:var(--light-color);
+    line-height: 1.8;
+    font-size: 1.6rem;
+    padding-top: 4rem;
+}
+
+.review .box-container .box::before{
+    content: '';
+    position: absolute;
+    top:-4rem; left: 50%;
+    transform:translateX(-50%);
+    background:var(--green);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    height: 25rem;
+    width: 120%;
+    z-index: -1;
+}
+.feedback {
+            margin-top: 4em;
+        }
+
+        .feedback h2 {
+            margin-bottom: 1em;
+        }
+
+        
+
+        
+
+        
+
+        .feedback .box-container .box .rating {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+      
+
+.feedback .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.feedback .box-container .box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.feedback .box-container .box img {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.5rem solid #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.feedback .box-container .box .rating {
+    
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    
+}
+
+.feedback .box-container .box h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+.feedback .box-container .box .stars {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.feedback .box-container .box .stars span {
+    color: #ffd700;
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.feedback .box-container .box .text {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+
+.feedback .box-container .box::before {
+    content: '';
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    height: 25rem;
+    width: 120%;
+    z-index: -1;
+}
+.go-back-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .go-back-button {
+            padding: 10px;
+            background-color: transparent;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .go-back-button:hover {
+            background-color: #76a9e0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <section>
+        <h2>Our Mission</h2>
+        <p>
+            Welcome to our Calculator website! We are on a mission to provide you with efficient and user-friendly tools for all your mathematical calculations.
+        </p>
+
+        <h2>Meet the Team</h2>
+
+        <h3>Calculator Pro</h3>
+        <p>The driving force behind our calculator innovations, ensuring precision and reliability in every calculation.</p>
+
+        <h3>Math Mastermind</h3>
+        <p>Bringing you cutting-edge mathematical solutions to simplify your complex calculations.</p>
+
+        <h3>Number Cruncher</h3>
+        <p>Dedicated to crafting intuitive and easy-to-use interfaces, making your mathematical journey smooth and enjoyable.</p>
+
+
+        <h2>Contact Us</h2>
+        <p>We value your feedback and are here to assist you with any queries. Feel free to reach out to us:</p>
+
+        <form action="mailto:namrataaggarwal@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+            
+            
+        </form>
+    </section>
+    <section class="feedback">
+        <h2>Customer Feedback</h2>
+        <div class="box-container">
+            
+            <div class="box">
+                <img src="C:\Users\namra\OneDrive\Desktop\images.jpeg" alt="Person 1">
+                
+                <h3>Neelam</h3>
+                <div class="stars">
+                    
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9734;</span>
+                </div>
+                <div class="text">
+                    "Great calculator! It helped me a lot with my daily calculations."
+                </div>
+            </div>
+
+            
+            <div class="box">
+                <img src="c:\Users\namra\OneDrive\Desktop\ABHISHEK_ABHISHEK_KUMAR_2141.format-webp.webpquality-50.webp" alt="Person 2">
+                
+                <h3>Deepanshu</h3>
+                <div class="stars">
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                </div>
+                <div class="text">
+                    "This is the best calculator I've ever used! Highly recommended."
+                </div>
+                
+                
+            
+            <div class="box">
+                <img src="C:\Users\namra\OneDrive\Desktop\sundeep.gif" alt="Person 3">
+                
+                <h3>Vikram</h3>
+                <div class="stars">
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9734;</span>
+                </div>
+                <div class="text">
+                    "I love this calculator! It's user-friendly and has all the features I need."
+                </div>
+                <div class="go-back-container">
+                    <button class="go-back-button" onclick="goBack()">Go Back</button>
+                </div>
+            
+        </div>
+    </section>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+
+
+
+
+
+        
+        
+    
+    
+</body>
+</html>
