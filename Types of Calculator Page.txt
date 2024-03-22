@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center; 
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px; 
+        }
+
+        .img-container {
+            margin: 20px; 
+        }
+        .go-back-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .go-back-button {
+            padding: 10px;
+            background-color: transparent;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .go-back-button:hover {
+            background-color: #76a9e0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Types of Calculator</h1>
+
+    
+    <div class="row">
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\length.html">
+                <img src="c:\Users\namra\OneDrive\Desktop\Screenshot 2023-11-26 192822.png" alt="Screenshot" height="220" width="220">
+            </a>
+        </div>
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\temp.html">
+                <img src="c:\Users\namra\OneDrive\Desktop\Screenshot 2023-11-26 192014.png" alt="Screenshot" height="220" width="220">
+            </a>
+        </div>
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\log.html">
+                <img src="c:\Users\namra\OneDrive\Desktop\Screenshot 2023-11-26 192539.png" alt="Screenshot" height="220" width="220">
+            </a>
+        </div>
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\ex.html">
+                <img src="c:\Users\namra\Downloads\exponential-high-resolution-logo.png" alt="logo" height="220" width="220">
+            </a>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\weight calculator.html">
+                <img src="c:\Users\namra\Downloads\weight-high-resolution-logo.png" alt="logo" height="220" width="220">
+            </a>
+        </div>
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\agecalculator.html">
+                <img src="c:\Users\namra\Downloads\age-high-resolution-logo.png" alt="logo" height="220" width="220">
+            </a>
+        </div>
+        <div class="img-container">
+            <a href="C:\Users\namra\OneDrive\Desktop\html\trigno.html">
+                <img src="c:\Users\namra\Downloads\trignometric-high-resolution-logo.png" alt="logo" height="220" width="220">
+            </a>
+            <div class="go-back-container">
+                <button class="go-back-button" onclick="goBack()">Go Back</button>
+            </div>
+        </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
