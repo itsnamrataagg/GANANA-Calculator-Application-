@@ -10,4 +10,6 @@ then each calculator like
 * log
 * weight
 * age
-* 
+* length
+  make more color combinations.
+  Lets continue!
